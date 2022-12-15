@@ -1,1 +1,1 @@
-# ggozi-ggo_portfolio.github.io
+# ggo_portfolio.github.io
