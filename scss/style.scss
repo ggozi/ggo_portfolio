@@ -106,22 +106,7 @@ em {
   height:100%;
 }
 
-#pinContainer {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-perspective: 1000;
-  perspective: 1000;
-}
-
-#slideContainer {
-  width: 400%;// 100*4 slides
-  height: 100%;
-}
-
 .panel {
-  float: left;
-  width: 25%; // 400/25 = 100%
   height: 100%;
   font-size: 60px;
   text-align: center;
@@ -129,7 +114,7 @@ em {
 }
 
 .one {
-    background-color: #fe4365;
+    background-color: #fff;
 }
 
 .two {
