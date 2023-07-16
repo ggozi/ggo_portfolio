@@ -75,34 +75,33 @@ const swiperTotal = {
 //Html include
 const uiHtml = {
 	include: function (fn) {
-		console.log(1)
-	  const $elements = $.find('*[data-include]');
-	  if ($elements.length) {
-		if (location.host) {
-		  $.each($elements, function (i) {
-			const $this = $(this);
-			$this.empty();
-			const $html = $this.data('include');
-			const $htmlAry = $html.split('/');
-			const $htmlFile = $htmlAry[$htmlAry.length - 1];
-			const $docTitle = document.title;
-			let $title = null;
-			if ($docTitle.indexOf(' | ') > -1) {
-			  $title = $docTitle.split(' | ')[0];
-			}
-			$this.load($html, function (sta) {
-			  if (sta == 'success') {
-				if (!$this.attr('class') && !$this.attr('id')) $this.children().unwrap();
-				else $this.removeAttr('data-include');
-			  }
-			  if (i === $elements.length - 1) {
-				if (!!fn) fn();
-			  }
+		const $elements = $.find('*[data-include]');
+		if ($elements.length) {
+			if (location.host) {
+			$.each($elements, function (i) {
+				const $this = $(this);
+				$this.empty();
+				const $html = $this.data('include');
+				const $htmlAry = $html.split('/');
+				const $htmlFile = $htmlAry[$htmlAry.length - 1];
+				const $docTitle = document.title;
+				let $title = null;
+				if ($docTitle.indexOf(' | ') > -1) {
+					$title = $docTitle.split(' | ')[0];
+				}
+				$this.load($html, function (sta) {
+					if (sta == 'success') {
+						if (!$this.attr('class') && !$this.attr('id')) $this.children().unwrap();
+						else $this.removeAttr('data-include');
+					}
+					if (i === $elements.length - 1) {
+						if (!!fn) fn();
+					}
+				});
 			});
-		  });
-		} else {
-		  if (!!fn) fn();
+			} else {
+				if (!!fn) fn();
+			}
 		}
-	  }
 	}
-  };
+};
